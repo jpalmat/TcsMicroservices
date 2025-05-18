@@ -10,7 +10,7 @@ public class Persona {
     private String name;
     private String gender;
     private Integer age;
-    private String direction;
+    private String address;
     private String phone;
 
     public Persona() {
@@ -48,12 +48,12 @@ public class Persona {
         this.age = age;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {

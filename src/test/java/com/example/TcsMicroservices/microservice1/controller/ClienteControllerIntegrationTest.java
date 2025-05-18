@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.example.TcsMicroservices.microservice1.data.Cliente;
 import com.example.TcsMicroservices.microservice1.data.PersonaRepository;
+import com.example.TcsMicroservices.microservice1.dto.ClienteDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -35,16 +36,16 @@ public class ClienteControllerIntegrationTest {
 
     @Test
     void createCliente_shouldReturnCreatedClienteAndStatusCreated() throws Exception {
-        Cliente cliente1 = new Cliente();
-        cliente1.setId(1234455678L);
-        cliente1.setName("Jose Lema");
-        cliente1.setGender("Masculino");
-        cliente1.setAge(30);
+        ClienteDTO cliente1 = new ClienteDTO();
+        cliente1.setCedula(1234455678L);
+        cliente1.setNombre("Jose Lema");
+        cliente1.setGenero("Masculino");
+        cliente1.setEdad(30);
         cliente1.setDirection("Otavalo sn y principal");
-        cliente1.setPhone("098254785");
+        cliente1.setTelefono("098254785");
         cliente1.setEmail("test@gmail.com");
-        cliente1.setPassword("1234");
-        cliente1.setState("True");
+        cliente1.setContrasenia("1234");
+        cliente1.setEstadoCliente("True");
 
         String json = objectMapper.writeValueAsString(cliente1);
 
