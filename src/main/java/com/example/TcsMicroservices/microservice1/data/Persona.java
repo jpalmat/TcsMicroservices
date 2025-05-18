@@ -9,7 +9,7 @@ public class Persona {
     private Long id;
     private String name;
     private String gender;
-    private String age;
+    private Integer age;
     private String direction;
     private String phone;
 
@@ -40,11 +40,11 @@ public class Persona {
         this.gender = gender;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

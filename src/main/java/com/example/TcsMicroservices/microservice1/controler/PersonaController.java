@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.TcsMicroservices.microservice1.data.Persona;
+import com.example.TcsMicroservices.microservice1.data.Cliente;
 import com.example.TcsMicroservices.microservice1.service.PersonaService;
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/clientes")
 public class PersonaController {
 
     private PersonaService personaService;
@@ -27,31 +27,31 @@ public class PersonaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Persona>> getPersonas() {
-        return new ResponseEntity<>(this.personaService.getPersonas(), HttpStatus.OK);
+    public ResponseEntity<List<Cliente>> getCliente() {
+        return new ResponseEntity<>(this.personaService.getClientes(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<String> addPersona(@RequestBody Persona persona) {
-        this.personaService.addPersona(persona);
-        return new ResponseEntity<>("Persona added successfully", HttpStatus.CREATED);
+    public ResponseEntity<String> addCliente(@RequestBody Cliente persona) {
+        this.personaService.addCliente(persona);
+        return new ResponseEntity<>("Cliente added successfully", HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePersona(@PathVariable Long id) {
-        boolean deleted = this.personaService.deletePersona(id);
+    public ResponseEntity<String> deleteCliente(@PathVariable Long id) {
+        boolean deleted = this.personaService.deleteCliente(id);
         if (!deleted) {
-            return new ResponseEntity<>("Persona not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Cliente not found", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>("Persona deleted successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Cliente deleted successfully", HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePersona(@PathVariable Long id, @RequestBody Persona companiesUpdated) {
-        boolean updated = this.personaService.updatePersona(id, companiesUpdated);
+    public ResponseEntity<String> updateCliente(@PathVariable Long id, @RequestBody Cliente personaUpdated) {
+        boolean updated = this.personaService.updateCliente(id, personaUpdated);
         if (!updated) {
-            return new ResponseEntity<>("Persona not found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Cliente not found", HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>("Persona updated successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Cliente updated successfully", HttpStatus.OK);
     }
 }

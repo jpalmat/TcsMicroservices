@@ -1,13 +1,11 @@
 package com.example.TcsMicroservices.microservice1.service.impl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.example.TcsMicroservices.microservice1.data.Persona;
+import com.example.TcsMicroservices.microservice1.data.Cliente;
 import com.example.TcsMicroservices.microservice1.data.PersonaRepository;
 import com.example.TcsMicroservices.microservice1.service.PersonaService;
 
@@ -22,17 +20,17 @@ public class PersonaServiceImpl implements PersonaService {
 
     int count = 0;
     @Override
-    public List<Persona> getPersonas() {
+    public List<Cliente> getClientes() {
         return personaRepository.findAll();
     }
 
     @Override
-    public void addPersona(Persona personas) {
-        personaRepository.save(personas);
+    public void addCliente(Cliente cliente) {
+        personaRepository.save(cliente);
     }
 
     @Override
-    public boolean deletePersona(Long id) {
+    public boolean deleteCliente(Long id) {
         try {
         personaRepository.deleteById(id);
         return true;
@@ -42,13 +40,21 @@ public class PersonaServiceImpl implements PersonaService {
     }
 
     @Override
-    public boolean updatePersona(Long id, Persona persona_updated) {
+    public boolean updateCliente(Long id, Cliente cliente_updated) {
 
-        Optional<Persona> companiesOptional = personaRepository.findById(id);
-        if(companiesOptional.isPresent()) {
-            Persona personas = companiesOptional.get();
-            personas.setName(persona_updated.getName());
-            personaRepository.save(personas);
+        Optional<Cliente> clienteOptional = personaRepository.findById(id);
+        if(clienteOptional.isPresent()) {
+            Cliente cliente = clienteOptional.get();
+            cliente.setName(cliente_updated.getName());
+            cliente.setGender(cliente_updated.getGender());
+            cliente.setAge(cliente_updated.getAge());
+            cliente.setDirection(cliente_updated.getDirection());
+            cliente.setPhone(cliente_updated.getPhone());
+            cliente.setEmail(cliente_updated.getEmail());
+            cliente.setPassword(cliente_updated.getPassword());
+            cliente.setState(cliente_updated.getState());
+
+            personaRepository.save(cliente);
             return true;
         }
         return false;
