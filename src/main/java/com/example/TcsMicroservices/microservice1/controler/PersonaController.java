@@ -31,6 +31,11 @@ public class PersonaController {
         return new ResponseEntity<>(this.personaService.getClientes(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<List<Cliente>> getClienteById(@PathVariable Long id) {
+        return new ResponseEntity<>(this.personaService.getClientes(), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<String> addCliente(@RequestBody Cliente persona) {
         this.personaService.addCliente(persona);

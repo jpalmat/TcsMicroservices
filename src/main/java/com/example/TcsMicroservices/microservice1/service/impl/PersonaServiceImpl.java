@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.TcsMicroservices.microservice1.data.Cliente;
 import com.example.TcsMicroservices.microservice1.data.PersonaRepository;
+import com.example.TcsMicroservices.microservice1.exceptions.NoClienteException;
 import com.example.TcsMicroservices.microservice1.service.PersonaService;
 
 @Service
@@ -58,5 +59,14 @@ public class PersonaServiceImpl implements PersonaService {
             return true;
         }
         return false;
-    }    
+    }
+
+    @Override
+    public Cliente getClienteById(Long id) {
+        Optional<Cliente> clienteOptional = personaRepository.findById(id);
+        if(clienteOptional.isEmpty()) {
+            throw new NoClienteException("Cliente with id " + id + "not found");
+        }
+        return clienteOptional.get();
+    }
 }
