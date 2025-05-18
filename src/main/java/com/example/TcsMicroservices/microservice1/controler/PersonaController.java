@@ -27,7 +27,7 @@ public class PersonaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Cliente>> getCliente() {
+    public ResponseEntity<List<Cliente>> getAllClientes() {
         return new ResponseEntity<>(this.personaService.getClientes(), HttpStatus.OK);
     }
 
