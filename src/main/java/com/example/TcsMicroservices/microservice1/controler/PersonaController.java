@@ -32,8 +32,8 @@ public class PersonaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<ClienteDTO>> getClienteById(@PathVariable Long id) {
-        return new ResponseEntity<>(this.personaService.getClientes(), HttpStatus.OK);
+    public ResponseEntity<ClienteDTO> getClienteById(@PathVariable Long id) {
+        return new ResponseEntity<>(this.personaService.getClienteById(id), HttpStatus.OK);
     }
 
     @PostMapping
