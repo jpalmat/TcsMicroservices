@@ -27,6 +27,9 @@ public class ClienteControllerTest {
     @Mock
     private PersonaService clienteService;
 
+    /**
+     F5: Pruebas unitarias: Implementar 1 prueba unitaria para la entidad de dominio Cliente.
+     */
     @Test
     void getAllClientes_shouldReturnListOfClientesAndOkStatus() {
         List<ClienteDTO> clientes = new ArrayList<>();

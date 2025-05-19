@@ -34,6 +34,9 @@ public class ClienteControllerIntegrationTest {
         clienteRepository.deleteAll();
     }
 
+    /**
+     F6: Pruebas de Integración: Implementar 1 prueba de integración.
+     */
     @Test
     void createCliente_shouldReturnCreatedClienteAndStatusCreated() throws Exception {
         ClienteDTO cliente1 = new ClienteDTO();
